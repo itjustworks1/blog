@@ -16,9 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('description');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->text('content');
-            $table->string('image');
+            $table->unsignedBigInteger('category_id');
+//            $table->string('image');
         });
     }
 

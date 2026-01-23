@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-
-        Post::factory()->count(10)->create();
         Category::factory()->count(10)->create();
+        Post::factory()->count(30)->create();
+
     }
 }
