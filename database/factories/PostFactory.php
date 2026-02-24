@@ -19,11 +19,12 @@ class PostFactory extends Factory
     {
         $title = $this->faker->realText(20);
         return [
-            'title' => $title,
-            'slug' => Str::slug($title, '-'),
-            'content' => $this->faker->realText(1000),
-            'category_id' => $this->faker->numberBetween(1, 10),
-            'description' => $this->faker->realText(200),
+            "title" => $title,
+            "description" => $this->faker->realText(250),
+            "content" => $this->faker->realText(1000),
+            "slug" => Str::slug($title, '-'),
+            "category_id" => $this->faker->numberBetween(1, 10),
+            "user_id" => $this->faker->numberBetween(1, 10),
         ];
     }
 }

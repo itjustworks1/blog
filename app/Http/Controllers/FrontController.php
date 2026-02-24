@@ -9,9 +9,8 @@ class FrontController extends Controller
 {
     public function home()
     {
-        $categories = Category::withCount('posts')->get();
 
-        ;
+        $categories = Category::withCount('posts')->get();
         $posts = Post::all();
         $page_title = "Home";
         return view('front.home', compact('categories', 'posts', 'page_title'));

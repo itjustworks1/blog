@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
@@ -16,8 +17,11 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->realText(20);
         return [
-            'name' => $this->faker->country(),
+            "title" => $title,
+            "description" => $this->faker->realText(250),
+            "slug" => Str::slug($title, '-'),
         ];
     }
 }
