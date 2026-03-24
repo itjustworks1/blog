@@ -27,6 +27,12 @@ class DatabaseSeeder extends Seeder
         ]);*/
         Role::factory()->create(['name' => 'admin']);
         Role::factory()->create(['name' => 'user']);
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin'),
+            'role_id' => '1',
+        ]);
         User::factory(10)->create();
         Category::factory(10)->create();
         Post::factory(30)->create();

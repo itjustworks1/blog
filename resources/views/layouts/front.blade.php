@@ -24,18 +24,37 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Ктегории
+                        Категории
                     </div>
                     <div class="card-body">
                         <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
                             @foreach($categories as $category)
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/category/{{$category->id}}">{{$category->name}} ({{$category->posts_count}})</a>
+                                <a class="nav-link active" aria-current="page" href="/category/{{$category->id}}">{{$category->title}}</a>
                             </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
+            @auth
+            <div class="card mt-2">
+                <div class="card-header">
+                    Информация о пользователе
+                </div>
+                <div class="card-body">
+                    <!-- Content displayed only to authenticated users -->
+                    <p>Welcome, {{ Auth::user()->name }}</p>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                        @csrf
+                        <button type="submit" value="Logout" class="btn btn-outline-primary">Logout</button>
+                    </form>
+
+                </div>
+            </div>
+            @endauth
             @section('sidebar')
             @endsection
         </div>

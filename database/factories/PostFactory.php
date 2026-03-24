@@ -21,7 +21,7 @@ class PostFactory extends Factory
         return [
             "title" => $title,
             "description" => $this->faker->realText(250),
-            "content" => $this->faker->realText(1000),
+            "content" => $this->faker->realText(100000),
             "slug" => Str::slug($title, '-'),
             "category_id" => $this->faker->numberBetween(1, 10),
             "user_id" => $this->faker->numberBetween(1, 10),

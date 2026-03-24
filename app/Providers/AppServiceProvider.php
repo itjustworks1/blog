@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Models\Post;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     protected $policies = [];
     public function boot(): void
     {
+        Paginator::useBootstrapFive();
         $this->registerPolicies();
 
         // Проверка роли администратора

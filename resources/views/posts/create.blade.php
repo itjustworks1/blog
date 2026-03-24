@@ -22,6 +22,19 @@
                                 @enderror
                             </div>
 
+
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                          id="description" name="description" rows="2" required>{{ old('description') }}</textarea>
+                                @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
                             <div class="mb-3">
                                 <label for="content" class="form-label">Content</label>
                                 <textarea class="form-control @error('content') is-invalid @enderror"

@@ -3,8 +3,18 @@
 
     @parent
 
+
 @endsection
 @section('content')
+    @can('create-post')
+        <div class="row mb-2">
+            <div class="col">
+                <a href="{{ route('posts.create') }}" class="btn btn-primary float-end">Create New Post</a>
+            </div>
+        </div>
+
+    @endcan
+
     @foreach($posts as $post)
         <div class="card mb-3" >
             <div class="row g-0">
@@ -21,4 +31,9 @@
             </div>
         </div>
     @endforeach
+    <div class="row">
+        <div class="col">
+            {{$posts->links()}}
+        </div>
+    </div>
 @endsection
